@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" >
+  	<title> Linear Momentum Simulation </title>
+
+  	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="page-header">
+      <h1>Linear Momentum</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class = "span10 offset2">
+        	<canvas id="canvas" width="620" height="200">
+        	  Sorry, you either have javascript disabled or are using an outdated browser.
+        	  Site tested and confirmed working with latest Mozilla Firefox and Google Chrome. 
+        	</canvas>
+        </div>
+      </div>
+      
+      <div class="row">
+        <span class="span1 block" style="background: #CCCCCC">1</span>
+        <span class="span1 block" style="background: #CCCCCC">2</span>
+        <span class="span1 block" style="background: #CCCCCC">3</span>
+        <span class="span1 block" style="background: #CCCCCC">4</span>
+        <span class="span1 block" style="background: #CCCCCC">5</span>
+        <span class="span1 block" style="background: #CCCCCC">6</span>
+        <span class="span1 block" style="background: #CCCCCC">7</span>
+        <span class="span1 block" style="background: #CCCCCC">8</span>
+        <span class="span1 block" style="background: #CCCCCC">9</span>
+        <span class="span1 block" style="background: #CCCCCC">0</span>
+        <span class="span1 block" style="background: #CCCCCC">1</span>
+        <span class="span1 block" style="background: #CCCCCC">2</span>
+      </div>
+      <div class="row">
+        <div class="well well-small span6 offset3" style="padding-left: 0px; padding-right: 0px;">
+          <div class="btn-group span4" style="width: 275px !important">
+            <button id="back" class="btn"><i class="icon-step-backward"></i></button>
+            <button id="slow" class="btn"><i class="icon-backward"></i></button>
+            <button id="pause" class="btn btn-info disabled"><i class="icon-pause"></i></button>
+            <button id="stop" class="btn btn-danger disabled"><i class="icon-stop"></i></button>
+            <button id="play" class="btn btn-success"><i class="icon-play"></i></button>
+            <button id="fast" class="btn"><i class="icon-forward"></i></button>
+            <button id="forw" class="btn"><i class="icon-step-forward"></i></button>
+            </div>
+          <span class="span2">Speed: <span id="speed" class="badge">1x</span></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4 offset1">
+          <table id="table1" class="table table-condensed table-bordered">
+            <thead>
+              <tr>
+                <th>Block 1</th>
+              </tr>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Position</td>
+                <td><input id="pos1" class="span1" type="text"></td>
+              </tr>
+              <tr>
+                <td>Velocity</td>
+                <td><input id="vel1" class="span1" type="text"></td>
+              </tr>
+              <tr>
+              <tr>
+                <td>Mass</td>
+                <td><input id="mass1" class="span1" type="text"></td>
+              </tr>
+                <td>Momentum</td>
+                <td><input id="mom1" class="span1 uneditable-input" type="text" disabled></td>
+              </tr>
+              <tr>
+                <td>Energy</td>
+                <td><input id="eng1" class="span1 uneditable-input" type="text" disabled></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button class="btn" style="float: right">Update</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="span4 offset1">
+          <table id="table2" class="table table-condensed table-bordered">
+            <thead>
+              <tr>
+                <th>Block 2</th>
+              </tr>
+              <tr>
+                <th>Property</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Position</td>
+                <td><input id="pos2" class="span1" type="text"></td>
+              </tr>
+              <tr>
+                <td>Velocity</td>
+                <td><input id="vel2" class="span1" type="text"></td>
+              </tr>
+              <tr>
+              <tr>
+                <td>Mass</td>
+                <td><input id="mass2" class="span1" type="text"></td>
+              </tr>
+                <td>Momentum</td>
+                <td><input id="mom2" class="span1 uneditable-input" type="text" disabled></td>
+              </tr>
+              <tr>
+                <td>Energy</td>
+                <td><input id="eng2" class="span1 uneditable-input" type="text" disabled></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button class="btn" style="float: right">Update</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- When actually developing on a server, remove the http: prefix -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/game/block.js"></script>
+    <script src="js/game/linmom.js"></script>
+    <script src="js/game/ui.js"></script>
+    <script>
+    </script>
+  </body>
+</html>
