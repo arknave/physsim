@@ -15,7 +15,7 @@ function btnbar(){
     $("#play").addClass('disabled');
     $("#forw").addClass('disabled');
   }
-  else if(state==='pause'){
+  else if(state==='pa	use'){
     $("#back").removeClass('disabled');
     $("#pause").removeClass('disabled');
     $("#stop").addClass('disabled');
@@ -24,19 +24,33 @@ function btnbar(){
   }
 }
 
+function updatetable(){
+  $("#pos1").val(s.block1.x);
+  $("#vel1").val(s.block1.sp);
+  $("#mass1").val(s.block1.m);
+  $("#mom1").val(s.block1.mom);
+  $("#eng1").val(s.block1.ke);
+
+  $("#pos2").val(s.block2.x);
+  $("#vel2").val(s.block2.sp);
+  $("#mass2").val(s.block2.m);
+  $("#mom2").val(s.block2.mom);
+  $("#eng2").val(s.block2.ke);
+}
+
 $("#back").click(function(){
   if($(this).hasClass('disabled')){
     return;
   }
-  runback();
+  s.runback();
 });
 
 $("#slow").click(function(){
-  speed.down;
-  $("#speed").text(speed.getLabel);
-  if(state='move'){
-    clearInterval(loop);
-    loop = setInterval(run, speed.getSpeed);
+  s.speed.down();
+  $("#speed").text(s.speed.getLabel());
+  if(state==='move'){
+    if(loop) clearInterval(loop);
+    loop = setInterval("s.run()", s.speed.getSpeed());;
   }
 });
 
@@ -50,15 +64,15 @@ $("#pause").click(function(){
     case "move":
       state = 'pause';
       btnbar();
-      clearInterval(loop);
+      if(loop) clearInterval(loop);
       break;
     case "pause":
       state = 'move';
       btnbar();
-      loop = setInterval(run, window.speeds[window.spd]);
+      loop = setInterval("s.run()", s.speed.getSpeed());
       break;
     default:
-      alert("Invalid state recieved: "+state);
+      alert("Invalid state received: "+state);
       break;
   }
 });
@@ -67,7 +81,7 @@ $("#stop").click(function(){
   if($(this).hasClass('disabled')) return;
   state = 'stop';
   btnbar();
-  clearInterval(loop);
+  if(loop) clearInterval(loop);
 })
 
 $("#play").click(function(){
@@ -79,22 +93,21 @@ $("#play").click(function(){
   }
   state = 'move';
   btnbar();
-  loop = setInterval(run, speed.getSpeed);
+  loop = setInterval("s.run()", s.speed.getSpeed());
 });
 
 $("#fast").click(function(){
-  /*speed.up();
-  $("#speed").text(speed.getLabel());
-  if(state='move'){
-    clearInterval(loop);
-    loop = setInterval(run, speed.getSpeed());
-  }*/
-  console.log(speed);
+  s.speed.up();
+  $("#speed").text(s.speed.getLabel());
+  if(state==='move'){
+    if(loop) clearInterval(loop);
+    loop = setInterval("s.run()", s.speed.getSpeed());
+  }
 });
 
 $("#forw").click(function(){
   if($(this).hasClass('disabled')){
     return;
   };
-  run();
+  s.run();
 });
